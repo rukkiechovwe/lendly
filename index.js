@@ -1,17 +1,15 @@
-let openBtn = document.getElementById('openBtn')
-		let closeBtn = document.getElementById('closeBtn')
-		closeBtn.style.display = 'none'
-		let sideNav = document.getElementById('sideNav')
-		openBtn.addEventListener('click',function(){
-			sideNav.style.display = 'flex'
-			sideNav.style.width = '100%'
-			sideNav.style.height = '100vh'
-			sideNav.style.transform = 'scaleX(1)'
-			closeBtn.style.display = 'block'
-			openBtn.style.display = 'none'
-		})
-		closeBtn.addEventListener('click',function(){
-			sideNav.style.transform = 'scaleX(0)'
-			closeBtn.style.display = 'none'
-			openBtn.style.display = 'block'
-		})
+
+const toggle = document.querySelector(".openBtn");
+const navBar = document.querySelector("#sideNav");
+toggle.addEventListener("click",()=>{
+	toggledisplay(navBar)
+	toggleBtn(toggle)
+})
+const toggledisplay=(elem)=>{
+    elem.style.visibility = elem.style.visibility === 'visible' ? 'hidden' : 'visible';
+    elem.style.opacity = elem.style.opacity === '1' ? '0' : '1';
+    elem.style.transform = elem.style.transform === 'scale(1)' ? 'scale(0.5)' : 'scale(1)';
+}
+const toggleBtn = (elem)=>{
+	elem.className = elem.className === 'closeBtn col' ? 'openBtn col' : 'closeBtn col';
+}
